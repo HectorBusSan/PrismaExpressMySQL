@@ -42,8 +42,57 @@ const prisma = new PrismaClient();
 				mission: 'Node'
       },
     });
-
-    console.log('Create 3 explorers');
+    const explorer1= await prisma.post.upsert({
+      where: {id: 1 },
+      update: {},
+      create: {
+        name: 'Explorer1',
+        lang: "es",
+        missionCommander: "Node",
+        enrollment:1
+      }
+    });
+    const explorer2= await prisma.post.upsert({
+      where: {id: 2 },
+      update:{},
+      create:{
+        name: 'Explorer2',
+        lang: "es",
+        missionCommander: "Node",
+        enrollment:1
+      }
+    });
+    const explorer3= await prisma.post.upsert({
+      where: {id: 3 },
+      update:{},
+      create:{
+        name: 'Explorer1',
+        lang: "es",
+        missionCommander: "Java",
+        enrollment:1
+      }
+    });
+    const explorer4= await prisma.post.upsert({
+      where: {id: 4 },
+      update:{},
+      create:{
+        name: 'Explorer4',
+        lang: "es",
+        missionCommander: "Java",
+        enrollment:1
+      }
+    });
+    const explorer5= await prisma.post.upsert({
+      where: {id: 5 },
+      update:{},
+      create:{
+        name: 'Explorer5',
+        lang: "es",
+        missionCommander: "Java",
+        enrollment:1
+      }
+    });
+    console.log('Create explorers');
   } catch(e) {
     console.error(e);
     process.exit(1);
@@ -51,3 +100,14 @@ const prisma = new PrismaClient();
     await prisma.$disconnect();
   }
 })();
+
+// (async function main() {
+//   try{
+//     
+//   }catch(e){
+//     console.error(e);
+//     process.exit(1);
+//   }finally{
+//     await prisma.$disconnect();
+//   }
+// })
