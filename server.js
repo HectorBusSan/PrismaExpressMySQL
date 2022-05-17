@@ -10,8 +10,9 @@ const prisma = new PrismaClient();
 const cors = require("cors");
 
 const corsOptions ={
-    origin : "http://localhost:8081"
+    origin :"http://localhost:8081"
 }
+app.use(cors(corsOptions));
 
 app.get('/', async (req,res)=>{
     res.json({message:'alive'});
